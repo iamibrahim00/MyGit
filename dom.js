@@ -38,11 +38,11 @@
 //ThirdChild.style.visibility = "hidden"
 
 
-var SecondItem = document.querySelectorAll(".list-group-item");
+//var SecondItem = document.querySelectorAll(".list-group-item");
 
-SecondItem[1].style.background= "green"
+//SecondItem[1].style.background= "green"
 
-
-//for (var i = 0; i < odd.length; i++ ){
-  //  odd[i].style.background = "green"
-//}
+var odd = document.querySelectorAll("li:nth-child(odd)")
+for (var i = 0; i < odd.length; i++ ){
+    odd[i].style.background = "green"
+}
