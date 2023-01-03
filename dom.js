@@ -11,12 +11,21 @@ console.log(document);
 var cars = document.getElementsByClassName("title3");
 cars[0].style.fontWeight="bold"
 cars[0].style.color="green"
+
 //for (i=0;i<cars.length;i++){
 //cars.style.backgroundColor="yellow";
 //}
+
 var car = document.getElementsByClassName("list-group-item")
 car[2].style.background="green"
-car[0].style.fontWeight="bold"
-car[1].style.fontWeight="bold"
-car[2].style.fontWeight="bold"
-car[3].style.fontWeight="bold"
+
+for(var i =0;i < car.length;i++){
+ car[i].style.fontWeight='bold'
+}
+
+var car = document.getElementsByTagName("li")
+car[2].style.background="green"
+
+for(var i =0;i < car.length;i++){
+car[i].style.fontWeight='bold'
+}
