@@ -1,48 +1,53 @@
-//console.log(document.URL);
-//console.log(document);
+var itemLister = document.querySelector("#cars")
+
+//ParentElement
+console.log(itemLister.parentElement)
+
+//lastElementChild
+console.log(itemLister.lastElementChild)
+
+//lastChild
+console.log(itemLister.lastChild)
 
 
 
-//var header = document.getElementById("main-header")
+//firstElementchild
+console.log(itemLister.firstElementChild)
 
-//header.style.borderBottom = "solid 3px black";
+//firstchild
+console.log(itemLister.firstChild)
 
+//nextSibling
+console.log(itemLister.nextSibling);
 
-//var cars = document.getElementsByClassName("title3");
-//cars[0].style.fontWeight="bold"
-//cars[0].style.color="green"
+//nextElementSibling
+console.log(itemLister.nextElementSibling);
 
-//for (i=0;i<cars.length;i++){
-//cars.style.backgroundColor="yellow";
-//}
+//previousSibling
+console.log(itemLister.previousSibling);
 
-//var car = document.getElementsByClassName("list-group-item")
-//car[2].style.background="green"
-
-//for(var i =0;i < car.length;i++){
- //car[i].style.fontWeight='bold'
-//}
-
-//var car = document.getElementsByTagName("li")
-//car[2].style.background="green"
-
-//for(var i =0;i < car.length;i++){
-//car[i].style.fontWeight='bold'
-//}
-
-//var SecondChild= document.querySelector('.list-group-item:nth-child(2)');
-
-//SecondChild.style.color="blue"
-
-//var ThirdChild = document.querySelector(".list-group-item:nth-child(3)");
-//ThirdChild.style.visibility = "hidden"
+//previousElementSibling
+console.log(itemLister.previousElementSibling);
 
 
-//var SecondItem = document.querySelectorAll(".list-group-item");
+//create Element
 
-//SecondItem[1].style.background= "green"
+newDiv =document.createElement("div");
+//Add class
+newDiv.className = "hello";
+//Add id
+newDiv.id = "hello1";
 
-var odd = document.querySelectorAll("li:nth-child(odd)")
-for (var i = 0; i < odd.length; i++ ){
-    odd[i].style.background = "green"
-}
+
+//Add Attribute
+newDiv.setAttribute('title', 'Hello div');
+
+
+//create A textnode
+var newDivText = document.createTextNode("Hii World");
+
+//Add text to div
+newDiv.appendChild(newDivText);
+
+
+console.log(newDiv);
