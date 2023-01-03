@@ -30,9 +30,19 @@
 //car[i].style.fontWeight='bold'
 //}
 
-var SecondChild= document.querySelector('.list-group-item:nth-child(2)');
+//var SecondChild= document.querySelector('.list-group-item:nth-child(2)');
 
-SecondChild.style.color="blue"
+//SecondChild.style.color="blue"
 
-var ThirdChild = document.querySelector(".list-group-item:nth-child(3)");
-ThirdChild.style.visibility = "hidden"
+//var ThirdChild = document.querySelector(".list-group-item:nth-child(3)");
+//ThirdChild.style.visibility = "hidden"
+
+
+var SecondItem = document.querySelectorAll(".list-group-item");
+
+SecondItem[1].style.background= "green"
+
+
+//for (var i = 0; i < odd.length; i++ ){
+  //  odd[i].style.background = "green"
+//}
