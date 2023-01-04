@@ -1,7 +1,7 @@
 
 const myForm = document.querySelector('#my-form');
-const nameInput = document.querySelector('#name');
-const emailInput = document.querySelector('#email');
+
+
 
 
 
@@ -10,9 +10,16 @@ myForm.addEventListener('submit', onSubmit);
 
 function onSubmit(e) {
   e.preventDefault();
-  if(nameInput.value == '' || emailInput.value == ''){
-    console.log('please enter the value')
-  }else{
-  localStorage.setItem('Username',nameInput.value)
-  localStorage.setItem('UserEmail',emailInput.value)
-}}
+  const name = e.target.name.value
+  const email = e.target.email.value
+  
+  var myObj ={
+  name,
+  email
+}
+
+localStorage.setItem('myObj', JSON.stringify(myObj))
+
+
+
+}
