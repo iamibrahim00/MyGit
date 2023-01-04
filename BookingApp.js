@@ -1,24 +1,31 @@
 
-const myForm = document.querySelector('#my-form');
 
+function saveToLocalStorage(event) {
+ 
+  event.preventDefault();
+  const name = event.target.name.value;
 
+  const email = event.target.email.value;
+  const phonenumber = event.target.phonenumber.value;
 
-
-
-// Listen for form submit
-myForm.addEventListener('submit', onSubmit);
-
-function onSubmit(e) {
-  e.preventDefault();
-  const name = e.target.name.value
-  const email = e.target.email.value
   
-  var myObj ={
+  const obj={
   name,
-  email
+  email,
+  phonenumber
+  }
+
+
+localStorage.setItem(obj.email, JSON.stringify(obj))
+showUserOnScreen(obj)
+
+function showUserOnScreen(obj){
+  const parentElem = document.getElementById('listOfitems')
+  
+  parentElem.innerHTML = parentElem.innerHTML +`<li> ${obj.name} - ${obj.email} - ${obj.phonenumber}</li>`
 }
 
-localStorage.setItem('myObj', JSON.stringify(myObj))
+
 
 
 
