@@ -1,5 +1,7 @@
 var form = document.getElementById('addForm');
 var itemList = document.getElementById('items');
+var filter = document.getElementById('filter')
+var descriptionText = document.getElementById('description')
 
 //form submit event
 form.addEventListener('submit', addItem);
@@ -8,12 +10,17 @@ form.addEventListener('submit', addItem);
 
 itemList.addEventListener('click', removeItem);
 
+//filter event
+filter.addEventListener('keyup',filterItems)
+
 // Add Event
 function addItem(e){
     e.preventDefault();
 
 // get input value
    var newItem = document.getElementById('item').value;
+//get input value for description
+var desc = document.getElementById('description').value;
 
  // create new li element
  var li = document.createElement('li')
@@ -22,6 +29,7 @@ function addItem(e){
  
  //Add textnode with input value
  li.appendChild(document.createTextNode(newItem));
+ li.appendChild(document.createTextNode(` ${desc}`));
 
  //Create Delete Button element
  var deleteBtn = document.createElement('button')
@@ -56,4 +64,40 @@ function removeItem(e){
             itemList.removeChild(li);
         }
     }
+}
+
+// filter items
+
+function filterItems(e){
+    // conevrt to lower case
+    var text = e.target.value.toLowerCase();
+
+    //to get list
+    var items = itemList.getElementsByTagName('li');
+
+    var descItems = descriptionText.getElementsByTagName('li');
+    // convert into array
+
+    Array.from(items).forEach(function(item){
+        var itemName = item.firstChild.textContent;
+        if (itemName.toLowerCase().indexOf(text) != -1){
+            item.style.display = 'block'
+            
+        }else {
+            item.style.display = 'none'
+        }
+
+    
+   
+        var itemName1 = item.childNodes[1].textContent;
+        if (itemName1.toLowerCase().indexOf(text) != -1){
+            item.style.display = 'block'
+            
+        }else {
+            item.style.display = 'none'
+        }
+    })
+
+
+
 }
