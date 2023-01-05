@@ -25,6 +25,8 @@ function showUserOnScreen(obj){
   const childElement = document.createElement('li')
 
   childElement.textContent = obj.name + ' - ' + obj.email + ' - ' + obj.phonenumber
+  
+
 
 
 
@@ -32,10 +34,32 @@ function showUserOnScreen(obj){
   deletebtn.type = "button"
   deletebtn.value = "Delete"
 
+ 
+  
+ 
+  
   deletebtn.onclick = () =>{
     localStorage.removeItem(obj.email)
     parentElement.removeChild(childElement)
+  }  
+
+const editBtn = document.createElement("input")
+  editBtn.type = "button"
+  editBtn.value = "Edit"
+  editBtn.onclick = () =>{
+    localStorage.removeItem(obj.email)
+    parentElement.removeChild(childElement)
+
+    document.getElementById("name").value = obj.name
+    document.getElementById("email").value = obj.email
+    document.getElementById("phonenumber").value = obj.phonenumber
   }
+
+
   childElement.appendChild(deletebtn)
+  childElement.appendChild(editBtn)
   parentElement.appendChild(childElement)
-}}
+
+}
+
+}
