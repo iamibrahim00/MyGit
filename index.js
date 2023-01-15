@@ -1,42 +1,16 @@
-// by using call
-//var Student= {count : 30}
 
-//var printbyCall= function(){
-  //  return this.count
-//}
+// Function currying using bind method
 
-//console.log(printbyCall.call(Student));
-
-
-// by using apply
-
-//var Student= {count : 30}
-
-//var numOfStudents = function(a,b){
- //   return this.count + a + b
-//}
-
-//var increaseCount = [10,20]
-//console.log(numOfStudents.apply(Student,increaseCount))
-
-// by using bind 
-//var Student= {count : 30}
-
-//var numOfStudents = function(a,b){
-    //return this.count + a + b
-//}
-
-//var increaseCount = [10,20]
-//var bound = numOfStudents.bind(Student)
-//console.log(bound(10,20))
-
-//by not passing the argument and calling by this
-var Student= {age: 30}
-
-var numOfStudents = function(){
-    return this.age
+let multiply = function(x,y){
+    return x * y
 }
 
+let multiply2 = multiply.bind(this,2)
+console.log(multiply2(5))
 
-var bound = numOfStudents.bind(Student)
-console.log(bound())
+let multiply3 = multiply.bind(this,3)
+console.log(multiply3(5))
+
+let multiply4 = multiply.bind(this,4,5)
+console.log(multiply4(5))
+
