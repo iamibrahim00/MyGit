@@ -1,14 +1,20 @@
 // by using call
+//var Student= {count : 30}
+
+//var printbyCall= function(){
+  //  return this.count
+//}
+
+//console.log(printbyCall.call(Student));
+
+
+// by using apply
+
 var Student= {count : 30}
 
-var printbyCall= function(){
-    return this.count
+var numOfStudents = function(a,b){
+    return this.count + a + b
 }
 
-console.log(printbyCall.call(Student));
-
-
-
-
-//var Details = ["iayamibrahim@gmail.com", 3432423432]
-//console.log(printbyCall.apply(Student,Details))
+var increaseCount = [10,20]
+console.log(numOfStudents.apply(Student,increaseCount))
