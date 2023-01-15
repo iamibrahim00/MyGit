@@ -1,16 +1,18 @@
 
-// Function currying using bind method
+// Function currying using closure
 
-let multiply = function(x,y){
-    return x * y
+let add = function(x){
+    return function(y){
+        console.log(x+y)
+    }
 }
 
-let multiply2 = multiply.bind(this,2)
-console.log(multiply2(5))
+let add2 = add(2)
+add2(5)
 
-let multiply3 = multiply.bind(this,3)
-console.log(multiply3(5))
+let add3 = add(3)
+add2(5)
 
-let multiply4 = multiply.bind(this,4,5)
-console.log(multiply4(5))
+let add4 = add(4)
+add2(5)
 
