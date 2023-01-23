@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   
+    <title>Document</title>
+    <link rel="stylesheet" href="ExpenseTracker.css">
+</head>
+<body>
+   
+    <form id ='form' onSubmit = "saveToLocalStorage(event)" >
+        <h1 >Expense Tracker</h1>
+        <div class="cont">
+        <label> Choose Expense</label>
+        <input type ='number' id ='expense' name="expense" required><br>
+        <label> Choose Description</label>
+        <input type ='text' id = 'description' name="description" required><br>
+        <label for="category">Choose Category</label>
+        <select name="category" id="category" required>
+            <option hidden></option>
+          <option value="movie"  >Movie</option>
+          <option value="game">Game</option>
+          <option value="shoppping">Shopping</option>
+          <option value="food">Food</option>
+          </select><br>
+
+        <button id ='btn'> Add Expense</button>
+    </div>
+    
+
+      <ul id="listOfitems">
+      
+ 
+   
+  
+      </ul>
+      </form>
+</body>
+<script src="ExpenseTracker.js">
+    
+</script>
+</html>
