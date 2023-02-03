@@ -1,6 +1,8 @@
 
 
+
 function saveToLocalStorage(event) {
+  
  
     event.preventDefault();
     const name = event.target.name.value;
@@ -15,7 +17,7 @@ function saveToLocalStorage(event) {
     phonenumber
     }
   
-    axios.post("https://crudcrud.com/api/aaf23824439d4547/appointmentData",obj)
+    axios.post("https://crudcrud.com/api/aaf23824439d4843898bace5e4f57547/appointmentData",obj)
     .then((response) => {
         showUserOnScreen(response.data)
         //console.log(response)
@@ -23,10 +25,35 @@ function saveToLocalStorage(event) {
         document.body.innerHTML =document.body.innerHTML + "<h4>Something Went wrong </h4>"
     })
 
-    axios.get("https://crudcrud.com/api/aaf23824439d4843898bace5e4f57547/appointmentData",obj)
+  
   //localStorage.setItem(obj.email, JSON.stringify(obj))
   //showUserOnScreen(obj)
+  }
+  //store obj on localstorage
+
+  // window.addEventListener("DOMContentLoaded", () =>{
+  //   const localStorageObj =localStorage
+  //   const localStoragKeys = Object.keys(localStorageObj)
+
+  //   for(var i=0; i<localStoragKeys.length;i++){
+  //     const key  =localStoragKeys[i]
+  //     const userdetailsString =localStorageObj[key]
+  //     const userdetailsobj = JSON.parse(userdetailsString)
+  //     showUserOnScreen(userdetailsobj)
+  //   }
+  // })
+  window.addEventListener("DOMContentLoaded", ()=>{
+    axios.get("https://crudcrud.com/api/aaf23824439d4843898bace5e4f57547/appointmentData")
+    .then((response) =>{
+      console.log(response)
   
+      for(var i =0; i< response.data.length;i++){
+       showUserOnScreen(response.data[i])
+      }
+    }).catch((err) => console.log(err))
+  
+  })
+
   function showUserOnScreen(obj){
     const parentElement = document.getElementById('listOfitems')
     
@@ -70,5 +97,5 @@ function saveToLocalStorage(event) {
   
   }
   
-  }
+  
   
