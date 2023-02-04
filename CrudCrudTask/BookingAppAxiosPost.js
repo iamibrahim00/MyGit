@@ -17,7 +17,7 @@ function saveToLocalStorage(event) {
     phonenumber
     }
   
-    axios.post("https://crudcrud.com/api/aaf23824439d4843898bace5e4f57547/appointmentData",obj)
+    axios.post("https://crudcrud.com/api/7cc0a5aae5604b3c8069cc59dcfd9165/appointmentData",obj)
     .then((response) => {
         showUserOnScreen(response.data)
         //console.log(response)
@@ -43,7 +43,7 @@ function saveToLocalStorage(event) {
   //   }
   // })
   window.addEventListener("DOMContentLoaded", ()=>{
-    axios.get("https://crudcrud.com/api/aaf23824439d4843898bace5e4f57547/appointmentData")
+    axios.get("https://crudcrud.com/api/7cc0a5aae5604b3c8069cc59dcfd9165/appointmentData")
     .then((response) =>{
       console.log(response)
   
@@ -74,25 +74,15 @@ function saveToLocalStorage(event) {
    
     
     deletebtn.onclick = () =>{
-      localStorage.removeItem(obj.email)
+      axios.delete("https://crudcrud.com/api/7cc0a5aae5604b3c8069cc59dcfd9165/appointmentData/63de5add81b3ab03e8473d57")
       parentElement.removeChild(childElement)
     }  
   
-  const editBtn = document.createElement("input")
-    editBtn.type = "button"
-    editBtn.value = "Edit"
-    editBtn.onclick = () =>{
-      localStorage.removeItem(obj.email)
-      parentElement.removeChild(childElement)
   
-      document.getElementById("name").value = obj.name
-      document.getElementById("email").value = obj.email
-      document.getElementById("phonenumber").value = obj.phonenumber
-    }
   
   
     childElement.appendChild(deletebtn)
-    childElement.appendChild(editBtn)
+    
     parentElement.appendChild(childElement)
   
   }
