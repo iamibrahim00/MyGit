@@ -1,4 +1,5 @@
 function savetolocalstorage(event){
+  event.preventDefault();
 
     const price = event.target.price.value
     const dish = event.target.dish.value
@@ -9,7 +10,7 @@ function savetolocalstorage(event){
         dish,
         table
     }
-    axios.post("https://crudcrud.com/api/6a8de77c02804884be384a52a780bbb6/Orderdata",obj)
+    axios.post("https://crudcrud.com/api/d147690a598f4d6ca53b466d30698ac4/Orderdata",obj)
     .then((response) => {
         showUserOnScreen(response.data)
         //console.log(response)
@@ -19,7 +20,7 @@ function savetolocalstorage(event){
 }
 
 window.addEventListener("DOMContentLoaded", ()=>{
-    axios.get("https://crudcrud.com/api/6a8de77c02804884be384a52a780bbb6/Orderdata")
+    axios.get("https://crudcrud.com/api/d147690a598f4d6ca53b466d30698ac4/Orderdata")
     .then((response) =>{
       console.log(response)
   
@@ -31,51 +32,33 @@ window.addEventListener("DOMContentLoaded", ()=>{
   })
 
   function showUserOnScreen(obj){
-    
-
-
-        
+    var childElement =`<li id =${obj._id}> ${obj.price} - ${obj.dish} - ${obj.table}
+    <button onclick = deleteuser('${obj._id}')>Delete</button></li>` 
+       
+   
   if(obj.table == document.getElementById('table1').id){
     var parentElement = document.getElementById('listofitems1')
-       var childElement =`<li id =${obj._id}> ${obj.price} - ${obj.dish} - ${obj.table}
-        <button onclick = deleteuser('${obj._id}')>Delete</button></li>` 
-    
-              
-    parentElement.innerHTML = parentElement.innerHTML +childElement
-    
+ 
   }
   else if(obj.table == document.getElementById('table2').id){
-    var parentElement = document.getElementById('listofitems2')
-    var childElement =`<li id =${obj._id}> ${obj.price} - ${obj.dish} - ${obj.table}
-        <button onclick = deleteuser('${obj._id}')>Delete</button></li>` 
-    
-              
+    var parentElement = document.getElementById('listofitems2')              
     parentElement.innerHTML = parentElement.innerHTML +childElement
 
   }
   else if(obj.table == document.getElementById('table2').id){
     var parentElement = document.getElementById('listofitems2')
-    var childElement =`<li id =${obj._id}> ${obj.price} - ${obj.dish} - ${obj.table}
-        <button onclick = deleteuser('${obj._id}')>Delete</button></li>` 
-    
-              
-    parentElement.innerHTML = parentElement.innerHTML +childElement
 
   }
   else{
-    var parentElement = document.getElementById('listofitems3')
-    var childElement =`<li id =${obj._id}> ${obj.price} - ${obj.dish} - ${obj.table}
-        <button onclick = deleteuser('${obj._id}')>Delete</button></li>` 
-    
-              
-    parentElement.innerHTML = parentElement.innerHTML +childElement
+    var parentElement = document.getElementById('listofitems3')  
 
   }
+  parentElement.innerHTML = parentElement.innerHTML +childElement
   }
 
 
   function deleteuser (objId){
-    axios.delete(`https://crudcrud.com/api/6a8de77c02804884be384a52a780bbb6/Orderdata/${objId}`)
+    axios.delete(`https://crudcrud.com/api/d147690a598f4d6ca53b466d30698ac4/Orderdata/${objId}`)
     .then((response)=>{
       removeUserfromScreen(objId)
     }).catch((err) => {   
@@ -86,8 +69,9 @@ window.addEventListener("DOMContentLoaded", ()=>{
     
    function removeUserfromScreen(objId){
     const parentElement= document.getElementById('listofitems')
-    const childNodeTobeDeleted = document.getElementById(_id)
+    const childNodeTobeDeleted = document.getElementById(objId)
     if(childNodeTobeDeleted){
-        parentElement.removeChild(childNodeTobeDeleted)
+        //parentElement.removeChild(childNodeTobeDeleted)
+        childNodeTobeDeleted.remove()
       }  }
  
